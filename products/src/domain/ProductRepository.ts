@@ -1,9 +1,5 @@
-import { IEnterGetProductCommandIn} from "./in/GetProductCommandIn";
-import { IEnterGetProductsCommandIn } from "./in/EnterGetProductsCommandIn";
-import { IEnterNumPagesCommandIn } from "./in/EnterNumPagesCommandIn";
-import { IGetNumPagesResponseCommandOut } from "./out/GetNumPagesCommandOut";
-import { IGetProductResponseCommandOut } from "./out/GetProductCommandOut";
-import { IGetProductsResponseCommandOut } from "./out/GetProductsCommandOut";
+import { IEnterGetProductCommandIn, IEnterGetProductsCommandIn, IEnterNumPagesCommandIn} from "./in";
+import { IGetNumPagesResponseCommandOut, IGetProductResponseCommandOut, IGetProductsResponseCommandOut } from "./out";
 
 export interface IProductRepository{
     getNumberOfPages: (data: IEnterNumPagesCommandIn) => Promise<IGetNumPagesResponseCommandOut>

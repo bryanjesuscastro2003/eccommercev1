@@ -1,5 +1,6 @@
 import express from "express";
 import * as http from "http";
+import productRouter from "./routes" 
 
 export class Server {
   private readonly _port: string;
@@ -8,9 +9,10 @@ export class Server {
 
   constructor(port: string) {
     this._port = port;
-    this._app = express();
+    this._app = express();      
     this._app.use(express.json());
     this._app.use(express.urlencoded({ extended: true }));
+    this._app.use(productRouter)
   }
 
   listen = async (): Promise<void> => {

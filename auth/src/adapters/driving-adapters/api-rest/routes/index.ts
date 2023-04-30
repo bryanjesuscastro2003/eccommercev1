@@ -1,4 +1,4 @@
-import { Request, Response, Router, NextFunction } from "express";
+import { Router } from "express";
 import authRouter from "./authRouter"
 
 const route = Router()
