@@ -4,7 +4,7 @@ import { TSections, TType } from "../../../domain/types";
 export class EnterGetProductsRequest implements IEnterGetProductsCommandIn {
   constructor(section: any, type: any, page: any) {
     this.section = section;
-    this.page = page;
+    this.page = parseInt(page);
     this.type = type;
   }
   section!: TSections;

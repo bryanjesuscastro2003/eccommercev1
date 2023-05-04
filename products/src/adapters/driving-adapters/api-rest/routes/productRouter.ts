@@ -3,8 +3,8 @@ import {getAllProductsController, getNumPagesController, getProductController } 
 
 const route = Router()
 
-route.get("/getAllProducts/:section/:type/:pageNumber", getAllProductsController)
-route.get("/getProduct/:section/product/:type/:_id", getProductController)
-route.get("/numOfPages/:section/:type", getNumPagesController)
+route.get("/getAllProducts", getAllProductsController)
+route.get("/getAllProducts/product", getProductController)
+route.get("/numOfPages", getNumPagesController)
 
 export default route

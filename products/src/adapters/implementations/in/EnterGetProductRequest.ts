@@ -2,7 +2,7 @@ import { IEnterGetProductCommandIn } from "../../../domain/in/GetProductCommandI
 import { TType } from "../../../domain/types";
 
 export class EnterGetProductRequest implements IEnterGetProductCommandIn {
-  constructor(section: string, type: any, _id: string) {
+  constructor(section: any, type: any, _id: any) {
     this.section = section;
     this._id = _id;
     this.type = type;

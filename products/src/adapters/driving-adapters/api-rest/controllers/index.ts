@@ -16,11 +16,11 @@ const mongoPersistence = new MongoDbPersistence();
 export const getAllProductsController = async (req: Request, res: Response) => {
   try {
     const caseAction = new GetProductsCase(mongoPersistence);
-    console.log(req.params)
-    const { section, type, pageNumber } = req.params;
+    const { section, type, pageNumber } = req.query;
     if (![section, type, pageNumber].every(Boolean))
       throw new Error("Invalid data :/");
-    const data = new EnterGetProductsRequest(section, type, parseInt(pageNumber));
+    const data = new EnterGetProductsRequest(section, type, pageNumber);
+    console.log(data)
     return res.json(await caseAction.run(data)).status(200);
   } catch (error) {
     console.log(error)
@@ -35,10 +35,11 @@ export const getAllProductsController = async (req: Request, res: Response) => {
 export const getProductController = async (req: Request, res: Response) => {
   try {
     const caseAction = new GetProductCase(mongoPersistence);
-    const { section, type, _id } = req.params;
+    const { section, type, _id } = req.query;
     if (![section, type, _id].every(Boolean))
       throw new Error("Invalid data :/");
     const data = new EnterGetProductRequest(section, type, _id);
+    console.log(data)
     return res.json(await caseAction.run(data)).status(200);
   } catch (error) {
     return res
@@ -52,7 +53,7 @@ export const getProductController = async (req: Request, res: Response) => {
 export const getNumPagesController = async (req: Request, res: Response) => {
   try {
     const caseAction = new GetNumPagesCase(mongoPersistence);
-    const { section, type } = req.params;
+    const { section, type } = req.query;
     if (![section, type].every(Boolean)) throw new Error("Invalid data :/");
     const data = new EnterNumPagesRequest(section, type);
     return res.json(await caseAction.run(data)).status(200);
