@@ -56,7 +56,6 @@ export class MongoDbPersistence implements IUserRepository{
                     throw new Error("Invalid data : email is already used")
                 const passwordHashed = await service.ecryptPassoword(data.password)
                 const newUser = await UserModel.create({...data, password: passwordHashed})
-                console.log(newUser)
                 const token = await service.generateJwt(newUser.username);
                 return new LogUpRes(token, true, "Account created ok");
             }catch(e){
